@@ -1,0 +1,190 @@
+﻿Build started 10/12/2015 23:39:18.
+     1>Project "D:\Cinematik\TerrainGen\TerrainGen\TerrainGen.vcxproj" on node 3 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D TERRAINGEN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Geometry\BBox.cpp Geometry\Ray.cpp Noise\Noise.cpp Shapes\Cube.cpp Shapes\Mesh.cpp Shapes\Shapes.cpp Shapes\Sphere.cpp Shapes\Triangle.cpp TerrainCPPLibrary.cpp Terrain\Terrain.cpp Terrain\TerrainFractal.cpp
+         TerrainFractal.cpp
+     1>d:\cinematik\terraingen\terraingen\terrain\..\Geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+     1>d:\cinematik\terraingen\terraingen\terrain\Terrain.h(50): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>d:\cinematik\terraingen\terraingen\terrain\Terrain.h(50): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>Terrain\TerrainFractal.cpp(13): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(17): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(19): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(21): warning C4244: 'argument' : conversion from 'int' to 'const float', possible loss of data
+     1>Terrain\TerrainFractal.cpp(22): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Terrain\TerrainFractal.cpp(37): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(40): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(42): warning C4018: '<' : signed/unsigned mismatch
+         Terrain.cpp
+     1>d:\cinematik\terraingen\terraingen\geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+     1>d:\cinematik\terraingen\terraingen\terrain\Terrain.h(50): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>d:\cinematik\terraingen\terraingen\terrain\Terrain.h(50): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(33): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\Terrain.cpp(35): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\Terrain.cpp(38): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(39): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(40): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(54): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(75): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(79): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(84): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(95): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(105): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(109): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(114): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+         TerrainCPPLibrary.cpp
+     1>d:\cinematik\terraingen\terraingen\terrain\..\Geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+     1>d:\cinematik\terraingen\terraingen\terrain\Terrain.h(50): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>d:\cinematik\terraingen\terraingen\terrain\Terrain.h(50): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>d:\cinematik\terraingen\terraingen\Shapes\Mesh.h(46): warning C4101: 'skip' : unreferenced local variable
+     1>d:\cinematik\terraingen\terraingen\Shapes\Mesh.h(47): warning C4101: 'skipc' : unreferenced local variable
+     1>TerrainCPPLibrary.cpp(13): warning C4273: 'TestDll' : inconsistent dll linkage
+                 d:\cinematik\terraingen\terraingen\TerrainCPPLibrary.h(10) : see previous definition of 'TestDll'
+     1>TerrainCPPLibrary.cpp(23): warning C4273: 'GenerateTerrainMesh' : inconsistent dll linkage
+                 d:\cinematik\terraingen\terraingen\TerrainCPPLibrary.h(12) : see previous definition of 'GenerateTerrainMesh'
+     1>TerrainCPPLibrary.cpp(27): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(28): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(29): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+         Triangle.cpp
+     1>d:\cinematik\terraingen\terraingen\geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+         Sphere.cpp
+     1>d:\cinematik\terraingen\terraingen\geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+         Shapes.cpp
+     1>d:\cinematik\terraingen\terraingen\geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+     1>Shapes\Shapes.cpp(23): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+         Mesh.cpp
+     1>d:\cinematik\terraingen\terraingen\geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+     1>d:\cinematik\terraingen\terraingen\shapes\..\Terrain\Terrain.h(50): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>d:\cinematik\terraingen\terraingen\shapes\..\Terrain\Terrain.h(50): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>d:\cinematik\terraingen\terraingen\shapes\Mesh.h(46): warning C4101: 'skip' : unreferenced local variable
+     1>d:\cinematik\terraingen\terraingen\shapes\Mesh.h(47): warning C4101: 'skipc' : unreferenced local variable
+     1>Shapes\Mesh.cpp(27): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>Shapes\Mesh.cpp(28): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>Shapes\Mesh.cpp(30): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>Shapes\Mesh.cpp(31): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>Shapes\Mesh.cpp(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Shapes\Mesh.cpp(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Cube.cpp
+     1>d:\cinematik\terraingen\terraingen\geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+     1>Shapes\Cube.cpp(26): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         Noise.cpp
+     1>d:\cinematik\terraingen\terraingen\noise\..\Geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+     1>Noise\Noise.cpp(46): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(59): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(61): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(85): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(89): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(115): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(116): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(126): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(135): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(144): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(155): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(223): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>Noise\Noise.cpp(226): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(227): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(229): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(230): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(238): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>Noise\Noise.cpp(241): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(241): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(242): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(244): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(244): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(245): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(247): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(247): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(248): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(250): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(250): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(251): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(253): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(253): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(254): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(257): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(263): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>Noise\Noise.cpp(266): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(266): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(267): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(269): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(269): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(270): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(272): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(273): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(281): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>Noise\Noise.cpp(284): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(284): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(285): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(287): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(287): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(288): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(290): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(290): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(291): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(293): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(293): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(294): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(306): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>Noise\Noise.cpp(309): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(309): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(310): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(312): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(312): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(313): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(315): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(315): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(316): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(318): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(318): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(319): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(321): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>Noise\Noise.cpp(321): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(322): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Noise\Noise.cpp(325): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+         Ray.cpp
+     1>d:\cinematik\terraingen\terraingen\geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+         BBox.cpp
+     1>d:\cinematik\terraingen\terraingen\geometry\Vector.h(56): warning C4172: returning address of local variable or temporary
+     1>Geometry\BBox.cpp(4): warning C4056: overflow in floating-point constant arithmetic
+     1>Geometry\BBox.cpp(36): warning C4056: overflow in floating-point constant arithmetic
+     1>Geometry\BBox.cpp(47): warning C4056: overflow in floating-point constant arithmetic
+     1>Geometry\BBox.cpp(57): warning C4056: overflow in floating-point constant arithmetic
+         Generating Code...
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(5): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(5): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(5): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(5): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(36): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(37): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(47): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(48): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(57): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\bbox.cpp(58): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\ray.cpp(5): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\geometry\ray.cpp(5): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\shapes\cube.cpp(11): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\shapes\cube.cpp(11): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\shapes\cube.cpp(11): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\shapes\mesh.cpp(10): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\shapes\mesh.cpp(11): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\shapes\mesh.cpp(18): warning C4756: overflow in constant arithmetic
+     1>d:\cinematik\terraingen\terraingen\shapes\mesh.cpp(10): warning C4756: overflow in constant arithmetic
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Assets\TerrainGen\TerrainGen.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win64" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"..\..\Assets\TerrainGen\TerrainGen.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"TerrainGen.lib" /MACHINE:X64 /DLL x64\Debug\BBox.obj
+         x64\Debug\Ray.obj
+         x64\Debug\Noise.obj
+         x64\Debug\Cube.obj
+         x64\Debug\Mesh.obj
+         x64\Debug\Shapes.obj
+         x64\Debug\Sphere.obj
+         x64\Debug\Triangle.obj
+         x64\Debug\TerrainCPPLibrary.obj
+         x64\Debug\Terrain.obj
+         x64\Debug\TerrainFractal.obj
+            Creating library TerrainGen.lib and object TerrainGen.exp
+         TerrainGen.vcxproj -> D:\Cinematik\TerrainGen\TerrainGen\..\..\Assets\TerrainGen\TerrainGen.dll
+     1>Done Building Project "D:\Cinematik\TerrainGen\TerrainGen\TerrainGen.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.74
