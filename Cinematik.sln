@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{BE3A9517-7508-DF79-4674-9F535720F818}") = "Cinematik", "Assembly-CSharp.csproj", "{ABDF3573-0DBE-B8D4-56F2-A85729B47F4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABDF3573-0DBE-B8D4-56F2-A85729B47F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABDF3573-0DBE-B8D4-56F2-A85729B47F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABDF3573-0DBE-B8D4-56F2-A85729B47F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABDF3573-0DBE-B8D4-56F2-A85729B47F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
