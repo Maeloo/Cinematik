@@ -46,8 +46,12 @@ Global
 		{4647C5D3-4807-4C26-A411-DBF985E8779D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4647C5D3-4807-4C26-A411-DBF985E8779D}.Release|Win32.ActiveCfg = Release|Any CPU
 		{4647C5D3-4807-4C26-A411-DBF985E8779D}.Release|x64.ActiveCfg = Release|Any CPU
+		{4647C5D3-4807-4C26-A411-DBF985E8779D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		Qt5Version = Qt 5.5
 	EndGlobalSection
 EndGlobal

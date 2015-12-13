@@ -30,7 +30,6 @@ Mesh::Mesh ( const Terrain & terrain, float precision ) {
 	for ( int j = 0; j < height; j += step ) {
 		for ( int i = 0; i < width; i += step ) {
 			vertex.push_back ( terrain.getPoint ( i, j ) );
-			
 			normals.push_back ( terrain.getNormal ( terrain.getPoint ( i, j ) ) );
 		}
 	}

@@ -1,26 +1,29 @@
 #pragma once
 
 #include <math.h>
-#include "..\Shapes\Shapes.h"
 #include "..\Geometry\Geometry.h"
 #include "..\Geometry\Vector.h"
 #include "..\Geometry\Normals.h"
-#include "..\Global\Constants.h"
+#include "..\Global\Global.h"
 #include "..\Global\Constants.h"
 
-class Terrain :
-	public Shapes 
+class Terrain
 {
 
 protected:
-	unsigned int terrain_width;
-	unsigned int terrain_height;
+	
+	
 	double k;						// Pente maximale
 	double high, low;				// Paramètre pour connaitre la hauteur max et min de la map
 
 public:
-	Terrain() : Shapes() { }
-
+	unsigned int terrain_width;
+	unsigned int terrain_height;
+	ColorRGB ** precalc;
+	Terrain();
+	Terrain(unsigned int terrain_width, unsigned int terrain_height);
+	Terrain(const Terrain&);
+	Terrain & operator=(const Terrain&);
 	//Pour definir un max et un min
 	void MaxMin(double);
 
@@ -31,7 +34,10 @@ public:
 	virtual double distance (const Point & p) const;
 
 	//	virtual Vector getColor ( const Vector & p ) const = 0;
-	 ColorRGB getColor(const Point & p) override;
+	 ColorRGB getColor(const Point & p);
+
+	 ColorRGB getColorPrecalculed(const Point & p);
+	 ColorRGB ColorFade(ColorRGB,ColorRGB,double,double);
 
 	// Renvoi la normal du terrain au point p
 	virtual Normals getNormal(Point p) const = 0;
@@ -49,7 +55,7 @@ public:
 	{
 		return BBox(getOrigin() + Point(0., 0., low), Point(terrain_width, terrain_height, high));
 	}
-	bool intersectSegment(const Ray& r, float *tHit, float tMax) const override;
+	bool intersectSegment(const Ray& r, float * tHit, float tMax) const;
 
 	// Renvoie vrai si le Ray r touche le terrain.
 	//bool intersection(Ray r, double &t) const;
@@ -77,7 +83,7 @@ public:
 	
 	// Calcul la pente maximale du terrain
 	void calcK();
-
+	virtual ~Terrain();
 	//Mesh* GetMesh ( );
 	
 };
