@@ -73,10 +73,15 @@ namespace TerrainCSharpLibrary {
 
             for ( int i = 0; i < StringCount; i++ ) {
                 ManagedStringArray[i] = Marshal.PtrToStringAnsi ( pIntPtrArray[i] );
+                
                 Marshal.FreeCoTaskMem ( pIntPtrArray[i] );
+
+                System.GC.Collect ( );
             }
 
             Marshal.FreeCoTaskMem ( pUnmanagedStringArray );
+
+            System.GC.Collect ( );
         }
 
 
@@ -100,6 +105,8 @@ namespace TerrainCSharpLibrary {
                 height * width );
 
             Marshal.FreeCoTaskMem ( heights_ptr );
+
+            System.GC.Collect ( );
         }
 
 
@@ -127,6 +134,8 @@ namespace TerrainCSharpLibrary {
                     ++idx;
                 }
             }
+
+            System.GC.Collect ( );
         }
 
 
@@ -172,6 +181,8 @@ namespace TerrainCSharpLibrary {
             Marshal.FreeCoTaskMem ( vertex_ptr );
             Marshal.FreeCoTaskMem ( normals_ptr );
             Marshal.FreeCoTaskMem ( faces_ptr );
+
+            System.GC.Collect ( );
         }
 
     }

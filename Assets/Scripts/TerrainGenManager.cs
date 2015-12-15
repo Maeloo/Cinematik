@@ -20,7 +20,7 @@ public class TerrainGenManager : MonoBehaviour {
     public Method method;
     public string name;
     
-    [Range ( 10, 13000 )]
+    [Range ( 100, 16000 )]
     public int size;
     
     [Range ( 1, 100 )]
@@ -44,37 +44,38 @@ public class TerrainGenManager : MonoBehaviour {
 
 
     void checkSize ( ) {
-        reel_size = size - size % 10;
-        Debug.Log ( "Reel size " + reel_size );
+        reel_size = size - size % precision;   
     }
 
 
     void checkPrecision ( ) {
-        int i = 2;
-        int new_precision = 1;
-        while ( i <= 100 ) {
-            if ( 100 % i == 0 ) {
-                if ( i != ( 1000 / i ) ) {
-                    float possible_step = ( 1.0f / ( i / 100.0f ) );
-                    if ( i >= precision && possible_step < reel_size ) {
-                        reel_precision = i / 100.0f;
-                        return;
-                    }                        
-                    new_precision = i;
-                }
-            }
-            i++;
-        }
-
+        int new_precision = precision;
+        //int i = 2;        
+        //while ( i <= 100 ) {
+        //    if ( 100 % i == 0 ) {
+        //        if ( i != ( 1000 / i ) ) {
+        //            float possible_step = ( 1.0f / ( i / 100.0f ) );
+        //            if ( i >= precision && possible_step < reel_size ) {
+        //                reel_precision = i / 100.0f;
+        //                return;
+        //            }                        
+        //            new_precision = i;
+        //        }
+        //    }
+        //    i++;
+        //}
         reel_precision = new_precision / 100.0f;
     }
 
 
+    private float _chrono;
     void GenerateTerrain ( ) {
         checkSize ( );
         checkPrecision ( );
+        Debug.Log ( "Reel size " + reel_size );
         Debug.Log ( "Reel precision " + reel_precision );
 
+        _chrono = Time.realtimeSinceStartup;
         switch ( method ) {
             case Method.FromData:
                 GenerateTerrainFromData ( );
@@ -91,7 +92,10 @@ public class TerrainGenManager : MonoBehaviour {
             case Method.FromObjData:
                 GenerateTerrainFromObjData ( );
                 break;
-        }        
+        }
+
+        float timed = Time.realtimeSinceStartup - _chrono;
+        Debug.logger.Log ( "Generation time : " + timed.ToString ( ) );
     }
 
 
@@ -99,6 +103,13 @@ public class TerrainGenManager : MonoBehaviour {
         if ( !keepObj && System.IO.Directory.Exists ( Path.Combine ( Application.dataPath, "Temp/" + name + "/" ) ) ) {
             System.IO.Directory.Delete ( Path.Combine ( Application.dataPath, "Temp/" + name + "/" ), true );
         }
+
+        //foreach ( Transform child in transform ) {
+        //    Mesh mesh = child.GetComponent<MeshFilter> ( ).mesh;
+        //    mesh.Clear ( );
+        //    Destroy ( mesh );
+        //    System.GC.Collect ( );
+        //}
     }
 
 
@@ -132,8 +143,6 @@ public class TerrainGenManager : MonoBehaviour {
 
         MeshRenderer meshRenderer = part.AddComponent<MeshRenderer> ( );
         meshRenderer.material = mat;
-
-        yield return new WaitForEndOfFrame ( );
     }
 
 
@@ -186,8 +195,6 @@ public class TerrainGenManager : MonoBehaviour {
                 Debug.LogError ( www.error );
             }    
         }
-
-        yield return new WaitForEndOfFrame ( );
     }
 
 
@@ -220,23 +227,35 @@ public class TerrainGenManager : MonoBehaviour {
 
         TerrainCSharpLibrary.TerrainCSharpLibrary.GenerateTerrainData ( reel_size, reel_size, out vertex, out normals, out faces, reel_precision );
 
-        GameObject terrain = new GameObject ( );
-        terrain.name = name;
-
         partCount = 0;
 
         Vector3[] vertices = getVertices ( vertex );
 
+        System.Array.Clear ( normals, 0, normals.Length );
+        normals = null;
+
+        System.Array.Clear ( vertex, 0, vertex.Length );
+        vertex = null;
+
+        System.GC.Collect ( );
+
         //SplitDataIn4Quad ( terrain, vertices, faces );
-        SplitDataIn2 ( terrain, vertices, faces, reel_size, reel_size );
+        SplitDataIn2 ( vertices, faces, reel_size, reel_size );
     }
 
-    void SplitDataIn2 ( GameObject terrain, Vector3[] verticesArray, int[] faces, int width, int height ) {
+
+    void SplitDataIn2 ( Vector3[] verticesArray, int[] faces, int width, int height ) {
         int reel_width   = Mathf.FloorToInt ( width  * reel_precision );
         int reel_height  = Mathf.FloorToInt ( height * reel_precision );
 
         if ( verticesArray.Length > 65000 ) {
+            System.Array.Clear ( faces, 0, faces.Length );
+            faces = null;
+
             List<Vector3> vertices = verticesArray.ToList<Vector3> ( );
+
+            System.Array.Clear ( verticesArray, 0, verticesArray.Length );
+            verticesArray = null;
 
             int height_   = ( reel_height / 2 ) + 1;
             int size_     = ( height_ * reel_width );
@@ -245,18 +264,23 @@ public class TerrainGenManager : MonoBehaviour {
             List<int> faces1 = regenerateFaces ( reel_width, height_ );
 
             List<Vector3> vertices2 = vertices.GetRange ( size_ - 2 * reel_width, size_ );
-            List<int> faces2 = regenerateFaces ( reel_width, height_ );         
+            List<int> faces2 = regenerateFaces ( reel_width, height_ );
 
-            SplitDataIn2 ( terrain, vertices1.ToArray ( ), faces1.ToArray ( ), width, height_ );
-            SplitDataIn2 ( terrain, vertices2.ToArray ( ), faces2.ToArray ( ), width, height_ );
+            vertices.Clear ( );
+            vertices = null;
+
+            System.GC.Collect ( );
+
+            SplitDataIn2 ( vertices1.ToArray ( ), faces1.ToArray ( ), width, height_ );
+            SplitDataIn2 ( vertices2.ToArray ( ), faces2.ToArray ( ), width, height_ );
         } else {
-            GenerateMesh ( verticesArray, faces, terrain.transform );
+            GenerateMesh ( verticesArray, faces, transform );
         }
     }
 
 
     // Marche pas :'(((((
-    void SplitDataIn4Quad ( GameObject terrain, Vector3[] vertices, int[] faces ) {
+    void SplitDataIn4Quad ( Vector3[] vertices, int[] faces ) {
         if ( vertices.Length > 65000 ) { 
             int idx = 0;
             int midSize = ( size + 1 ) / 2;
@@ -284,12 +308,12 @@ public class TerrainGenManager : MonoBehaviour {
 
             size = midSize;
 
-            SplitDataIn4Quad ( terrain, vertices0, facesIndex.ToArray ( ) );
-            SplitDataIn4Quad ( terrain, vertices1, facesIndex.ToArray ( ) );
-            SplitDataIn4Quad ( terrain, vertices2, facesIndex.ToArray ( ) );
-            SplitDataIn4Quad ( terrain, vertices3, facesIndex.ToArray ( ) );
+            SplitDataIn4Quad ( vertices0, facesIndex.ToArray ( ) );
+            SplitDataIn4Quad ( vertices1, facesIndex.ToArray ( ) );
+            SplitDataIn4Quad ( vertices2, facesIndex.ToArray ( ) );
+            SplitDataIn4Quad ( vertices3, facesIndex.ToArray ( ) );
         } else {
-            GenerateMesh ( vertices, faces, terrain.transform );
+            GenerateMesh ( vertices, faces, transform );
         }
     }
 
