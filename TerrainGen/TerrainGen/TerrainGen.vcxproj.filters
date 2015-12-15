@@ -66,13 +66,13 @@
     <ClInclude Include="Terrain\TerrainFractal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Export\TerrainMesh.h">
+    <ClInclude Include="_UnityExport\MeshWriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Export\Vec3.h">
+    <ClInclude Include="_UnityExport\TerrainMesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Export\MeshWriter.h">
+    <ClInclude Include="_UnityExport\Vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -110,7 +110,7 @@
     <ClCompile Include="Terrain\TerrainFractal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Export\TerrainMesh.cpp">
+    <ClCompile Include="_UnityExport\TerrainMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

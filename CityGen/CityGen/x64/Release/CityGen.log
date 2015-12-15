@@ -1,0 +1,71 @@
+﻿Build started 15/12/2015 23:45:05.
+     1>Project "E:\Work in Progress\Cinematik\CityGen\CityGen\CityGen.vcxproj" on node 3 (Rebuild target(s)).
+     1>ClCompile:
+         E:\Visual Studio 13\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /I\include /I.\GeneratedFiles\Release /I\include\QtCore /I\include\QtGui /I\include\QtWidgets /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _CRT_SECURE_NO_WARNINGS /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /D NDEBUG /D _WINDOWS /D _USRDLL /D CITYGEN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt CityCPPLibrary.cpp _UnityExport\CityMesh.cpp Geometry\Circle.cpp Geometry\Geometry.cpp Geometry\Hexagone.cpp Geometry\Pentagone.cpp Geometry\Quadrangle.cpp Geometry\Triangle.cpp Grammar\BatimentQuadra\Etage.cpp Grammar\BatimentQuadra\EtageCircle.cpp Grammar\BatimentQuadra\RDC.cpp Grammar\BatimentQuadra\Toit.cpp Grammar\Map\QuadrangleSymbol.cpp Grammar\Map\TriangleSymbol.cpp Grammar\Symbol.cpp Mesh\Mesh.cpp Transform\Mat4x4.cpp Transform\Transform.cpp Utils\Utils.cpp
+         CityCPPLibrary.cpp
+     1>CityCPPLibrary.cpp(19): warning C4273: 'TestDll' : inconsistent dll linkage
+                 e:\work in progress\cinematik\citygen\citygen\CityCPPLibrary.h(13) : see previous definition of 'TestDll'
+     1>CityCPPLibrary.cpp(29): warning C4273: 'GenerateCityData' : inconsistent dll linkage
+                 e:\work in progress\cinematik\citygen\citygen\CityCPPLibrary.h(15) : see previous definition of 'GenerateCityData'
+         CityMesh.cpp
+         Circle.cpp
+         Geometry.cpp
+         Hexagone.cpp
+         Pentagone.cpp
+         Quadrangle.cpp
+         Triangle.cpp
+         Etage.cpp
+         EtageCircle.cpp
+     1>Grammar\BatimentQuadra\EtageCircle.cpp(32): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Grammar\BatimentQuadra\EtageCircle.cpp(51): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>Grammar\BatimentQuadra\EtageCircle.cpp(51): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+         RDC.cpp
+         Toit.cpp
+         QuadrangleSymbol.cpp
+         TriangleSymbol.cpp
+         Symbol.cpp
+         Mesh.cpp
+     1>Mesh\Mesh.cpp(39): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Mesh\Mesh.cpp(52): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Mesh\Mesh.cpp(135): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Mesh\Mesh.cpp(351): warning C4244: 'argument' : conversion from 'const double' to 'const float', possible loss of data
+     1>Mesh\Mesh.cpp(352): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>Mesh\Mesh.cpp(352): warning C4244: 'argument' : conversion from 'const double' to 'const float', possible loss of data
+     1>Mesh\Mesh.cpp(379): warning C4244: 'argument' : conversion from 'const double' to 'const float', possible loss of data
+     1>Mesh\Mesh.cpp(380): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>Mesh\Mesh.cpp(412): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>Mesh\Mesh.cpp(413): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>Mesh\Mesh.cpp(414): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>Mesh\Mesh.cpp(419): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+         Mat4x4.cpp
+         Transform.cpp
+         Utils.cpp
+       Link:
+         E:\Visual Studio 13\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Assets\CityGen\CityGen.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"..\..\Assets\CityGen\CityGen.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"CityGen.lib" /MACHINE:X64 /DLL x64\Release\CityCPPLibrary.obj
+         x64\Release\CityMesh.obj
+         x64\Release\Circle.obj
+         x64\Release\Geometry.obj
+         x64\Release\Hexagone.obj
+         x64\Release\Pentagone.obj
+         x64\Release\Quadrangle.obj
+         x64\Release\Triangle.obj
+         x64\Release\Etage.obj
+         x64\Release\EtageCircle.obj
+         x64\Release\RDC.obj
+         x64\Release\Toit.obj
+         x64\Release\QuadrangleSymbol.obj
+         x64\Release\TriangleSymbol.obj
+         x64\Release\Symbol.obj
+         x64\Release\Mesh.obj
+         x64\Release\Mat4x4.obj
+         x64\Release\Transform.obj
+         x64\Release\Utils.obj
+            Creating library CityGen.lib and object CityGen.exp
+         Generating code
+         Finished generating code
+         CityGen.vcxproj -> E:\Work in Progress\Cinematik\CityGen\CityGen\..\..\Assets\CityGen\CityGen.dll
+     1>Done Building Project "E:\Work in Progress\Cinematik\CityGen\CityGen\CityGen.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.73

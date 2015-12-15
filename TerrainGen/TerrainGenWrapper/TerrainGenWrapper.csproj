@@ -7,7 +7,7 @@
     <ProjectGuid>{4647C5D3-4807-4C26-A411-DBF985E8779D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TerrainGenWrapper</RootNamespace>
+    <RootNamespace>TerrainGen</RootNamespace>
     <AssemblyName>TerrainGenWrapper</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

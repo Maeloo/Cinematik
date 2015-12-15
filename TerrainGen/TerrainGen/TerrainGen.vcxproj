@@ -148,6 +148,7 @@
       <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -163,8 +164,8 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Export\MeshWriter.h" />
-    <ClInclude Include="Export\Vec3.h" />
+    <ClInclude Include="_UnityExport\MeshWriter.h" />
+    <ClInclude Include="_UnityExport\Vec3.h" />
     <ClInclude Include="Geometry\BBox.h" />
     <ClInclude Include="Geometry\Geometry.h" />
     <ClInclude Include="Geometry\Normals.h" />
@@ -180,7 +181,7 @@
     <ClInclude Include="Shapes\Sphere.h" />
     <ClInclude Include="Shapes\Triangle.h" />
     <ClInclude Include="TerrainCPPLibrary.h" />
-    <ClInclude Include="Export\TerrainMesh.h" />
+    <ClInclude Include="_UnityExport\TerrainMesh.h" />
     <ClInclude Include="Terrain\Terrain.h" />
     <ClInclude Include="Terrain\TerrainFractal.h" />
   </ItemGroup>
@@ -194,7 +195,7 @@
     <ClCompile Include="Shapes\Sphere.cpp" />
     <ClCompile Include="Shapes\Triangle.cpp" />
     <ClCompile Include="TerrainCPPLibrary.cpp" />
-    <ClCompile Include="Export\TerrainMesh.cpp" />
+    <ClCompile Include="_UnityExport\TerrainMesh.cpp" />
     <ClCompile Include="Terrain\Terrain.cpp" />
     <ClCompile Include="Terrain\TerrainFractal.cpp" />
   </ItemGroup>

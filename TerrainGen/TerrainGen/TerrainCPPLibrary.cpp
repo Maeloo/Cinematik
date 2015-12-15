@@ -11,8 +11,8 @@
 #include "TerrainCPPLibrary.h"
 #include "Terrain\TerrainFractal.h"
 #include "Shapes\Mesh.h"
-#include "Export\TerrainMesh.h"
-#include "Export\MeshWriter.h"
+#include "_UnityExport\TerrainMesh.h"
+#include "_UnityExport\MeshWriter.h"
 
 
 extern "C" {
@@ -138,6 +138,7 @@ extern "C" {
 		*max = terrain.getHigh ( );
 
 		float max_inv = 1.f / terrain.getHigh ( );
+#pragma omp parallel for
 		for ( int x = 0; x < width; ++x ) {
 			for ( int y = 0; y < height; ++y ) {
 				
@@ -191,6 +192,7 @@ extern "C" {
 		*faceSize	= facesIndex.size ( );
 	
 		*vertex = new float[terrainVertex.size ( ) * 3];
+#pragma omp parallel for
 		for ( int i = 0; i < terrainVertex.size ( ) * 3; i += 3 ) {
 			( *vertex )[i] = terrainVertex[i / 3].x;
 			( *vertex )[i + 1] = terrainVertex[i / 3].y;
@@ -198,6 +200,7 @@ extern "C" {
 		}
 		
 		*normals = new float[terrainNormals.size ( ) * 3];
+#pragma omp parallel for
 		for ( int i = 0; i < terrainNormals.size ( ) * 3; i += 3 ) {
 			( *normals )[i] = terrainNormals[i / 3].x;
 			( *normals )[i + 1] = terrainNormals[i / 3].y;
@@ -205,6 +208,7 @@ extern "C" {
 		}
 
 		*faces = new int[facesIndex.size ( )];
+#pragma omp parallel for
 		for ( int i = 0; i < facesIndex.size ( ); i++ ) {
 			( *faces )[i] = facesIndex[i];
 		}

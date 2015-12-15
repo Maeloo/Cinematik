@@ -12,8 +12,8 @@ public class Test : MonoBehaviour {
 
     void Start ( ) {
         float   res1    = DllTestFunc ( );
-        string  res2    = TerrainCSharpLibrary.TerrainCSharpLibrary.TestWrapper ( );
-        float   res3    = TerrainCSharpLibrary.TerrainCSharpLibrary.TestDll ( );
+        string  res2    = TerrainGen.TerrainCSharpLibrary.TestWrapper ( );
+        float   res3    = TerrainGen.TerrainCSharpLibrary.TestDll ( );
 
         Debug.Log ( res1 );
         Debug.Log ( res2 );

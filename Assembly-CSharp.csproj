@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CityGenManager.cs" />
      <Compile Include="Assets\Scripts\TerrainGenManager.cs" />
      <Compile Include="Assets\Scripts\Test.cs" />
      <Compile Include="Assets\Scripts\objReaderCSharpV4.cs" />
@@ -53,6 +54,9 @@
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="CityGenWrapper">
+ <HintPath>E:/Work in Progress/Cinematik/Assets/Plugins/CityGenWrapper.dll</HintPath>
  </Reference>
  <Reference Include="TerrainGenWrapper">
  <HintPath>E:/Work in Progress/Cinematik/Assets/Plugins/TerrainGenWrapper.dll</HintPath>

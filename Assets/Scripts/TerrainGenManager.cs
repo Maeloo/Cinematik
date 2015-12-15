@@ -49,22 +49,7 @@ public class TerrainGenManager : MonoBehaviour {
 
 
     void checkPrecision ( ) {
-        int new_precision = precision;
-        //int i = 2;        
-        //while ( i <= 100 ) {
-        //    if ( 100 % i == 0 ) {
-        //        if ( i != ( 1000 / i ) ) {
-        //            float possible_step = ( 1.0f / ( i / 100.0f ) );
-        //            if ( i >= precision && possible_step < reel_size ) {
-        //                reel_precision = i / 100.0f;
-        //                return;
-        //            }                        
-        //            new_precision = i;
-        //        }
-        //    }
-        //    i++;
-        //}
-        reel_precision = new_precision / 100.0f;
+        reel_precision = precision / 100.0f;
     }
 
 
@@ -94,7 +79,7 @@ public class TerrainGenManager : MonoBehaviour {
                 break;
         }
 
-        float timed = Time.realtimeSinceStartup - _chrono;
+        float timed = Time.realtimeSinceStartup - _chrono; // Marche pas ?
         Debug.logger.Log ( "Generation time : " + timed.ToString ( ) );
     }
 
@@ -117,7 +102,7 @@ public class TerrainGenManager : MonoBehaviour {
     public void GenerateTerrainFromObjData ( ) {
         string[] data;
 
-        TerrainCSharpLibrary.TerrainCSharpLibrary.GenerateTerrainMeshData ( reel_size, reel_size, out data, reel_precision );
+        TerrainGen.TerrainCSharpLibrary.GenerateTerrainMeshData ( reel_size, reel_size, out data, reel_precision );
 
         GameObject obj = new GameObject ( );
         obj.name = name;
@@ -155,7 +140,7 @@ public class TerrainGenManager : MonoBehaviour {
         string path = Path.Combine ( Application.dataPath, "Temp/" + name + "/" );
         System.IO.Directory.CreateDirectory ( path );
 
-        TerrainCSharpLibrary.TerrainCSharpLibrary.GenerateTerrainObjs ( reel_size, reel_size, _newFolderPath + "/" + name + "_", ref meshCount, reel_precision );
+        TerrainGen.TerrainCSharpLibrary.GenerateTerrainObjs ( reel_size, reel_size, _newFolderPath + "/" + name + "_", ref meshCount, reel_precision );
 
 #if UNITY_EDITOR
         AssetDatabase.Refresh ( );
@@ -203,7 +188,7 @@ public class TerrainGenManager : MonoBehaviour {
         float[,] heightmap;
 
         float height = 0;
-        TerrainCSharpLibrary.TerrainCSharpLibrary.GenerateTerrainHeightmap ( reel_size, reel_size, out heightmap, ref height );
+        TerrainGen.TerrainCSharpLibrary.GenerateTerrainHeightmap ( reel_size, reel_size, out heightmap, ref height );
 
         TerrainData data = new TerrainData ( );
         
@@ -225,7 +210,7 @@ public class TerrainGenManager : MonoBehaviour {
         float[] normals;
         int[] faces;
 
-        TerrainCSharpLibrary.TerrainCSharpLibrary.GenerateTerrainData ( reel_size, reel_size, out vertex, out normals, out faces, reel_precision );
+        TerrainGen.TerrainCSharpLibrary.GenerateTerrainData ( reel_size, reel_size, out vertex, out normals, out faces, reel_precision );
 
         partCount = 0;
 
