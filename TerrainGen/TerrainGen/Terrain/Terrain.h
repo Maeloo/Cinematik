@@ -1,27 +1,31 @@
 #pragma once
 
 #include <math.h>
+//#include <qdebug.h>
 #include "..\Geometry\Geometry.h"
 #include "..\Geometry\Vector.h"
 #include "..\Geometry\Normals.h"
-#include "..\Global\Global.h"
-#include "..\Global\Constants.h"
+#include "..\Shapes\Pixel.h"
+#include "Global\Constants.h"
+#include "..\Noise\Noise.h"
 
 class Terrain
 {
 
 protected:
 	
-	
+	bool renderGrey;
 	double k;						// Pente maximale
 	double high, low;				// Paramètre pour connaitre la hauteur max et min de la map
-
+	Pixel ** pointList;
+	int steps;
+	int terrain_width, terrain_height;
+	int points_width, points_height;
 public:
-	unsigned int terrain_width;
-	unsigned int terrain_height;
+
 	ColorRGB ** precalc;
 	Terrain();
-	Terrain(unsigned int terrain_width, unsigned int terrain_height);
+	Terrain(const int& terrain_width, const int& terrain_height, const int& _teps);
 	Terrain(const Terrain&);
 	Terrain & operator=(const Terrain&);
 	//Pour definir un max et un min
@@ -35,22 +39,25 @@ public:
 
 	//	virtual Vector getColor ( const Vector & p ) const = 0;
 	 ColorRGB getColor(const Point & p);
+	 ColorRGB initColor(const Point & p);
 
 	 ColorRGB getColorPrecalculed(const Point & p);
-	 ColorRGB ColorFade(ColorRGB,ColorRGB,double,double);
+	 ColorRGB ColorFadeHight(ColorRGB, ColorRGB, ColorRGB, double, double, double);
 
 	// Renvoi la normal du terrain au point p
-	virtual Normals getNormal(Point p) const = 0;
+	 virtual Normals getNormal(Pixel p) const = 0;
 
 	// Renvoie le point x, y, z appartenant a pointList a partir du x, y (recherche matrice + interpolation).
-	virtual Point getPoint(float x, float y) const = 0;
+	virtual Pixel getPoint(float x, float y) const = 0;
+	virtual double getZ(float x, float y) const = 0;
+	virtual double getSlope(Pixel p) const = 0;
 
 	Point getOrigin () const 
 	{
 		return Point (0.); // TODO
 	}
 
-	virtual bool intersect(const Ray &ray, float * tHit) const;
+	virtual bool intersect(const Ray &ray, float * tHit, int * nbIter) const;
 	virtual BBox getBound() const
 	{
 		return BBox(getOrigin() + Point(0., 0., low), Point(terrain_width, terrain_height, high));
@@ -60,16 +67,21 @@ public:
 	// Renvoie vrai si le Ray r touche le terrain.
 	//bool intersection(Ray r, double &t) const;
 
-	// DEBUG
-	unsigned int getWidth() const 
+	inline int getPointsWidth() const
 	{
-		return terrain_width;
+		return points_width;
 	}
 
-	unsigned int getHeight() const 
+	inline int getPointsHeight() const 
 	{
-		return terrain_height;
+		return points_height;
 	}
+
+	inline int getSteps() const
+	{
+		return steps;
+	}
+		
 
 	double getLow() const 
 	{
@@ -80,11 +92,15 @@ public:
 	{
 		return high;
 	}
+
+
 	
 	// Calcul la pente maximale du terrain
 	void calcK();
 	virtual ~Terrain();
 	//Mesh* GetMesh ( );
+
+	void ChangeRenderColor(const bool& render_grey);
 	
 };
 

@@ -164,6 +164,7 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Shapes\Pixel.h" />
     <ClInclude Include="_UnityExport\MeshWriter.h" />
     <ClInclude Include="_UnityExport\Vec3.h" />
     <ClInclude Include="Geometry\BBox.h" />
@@ -191,6 +192,7 @@
     <ClCompile Include="Noise\Noise.cpp" />
     <ClCompile Include="Shapes\Cube.cpp" />
     <ClCompile Include="Shapes\Mesh.cpp" />
+    <ClCompile Include="Shapes\Pixel.cpp" />
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="Shapes\Sphere.cpp" />
     <ClCompile Include="Shapes\Triangle.cpp" />

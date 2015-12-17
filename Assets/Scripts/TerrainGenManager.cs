@@ -34,7 +34,7 @@ public class TerrainGenManager : MonoBehaviour {
 
     private static int partCount;
 
-    private float reel_precision;
+    private int reel_precision;
     private int reel_size;
 
 
@@ -49,7 +49,7 @@ public class TerrainGenManager : MonoBehaviour {
 
 
     void checkPrecision ( ) {
-        reel_precision = precision / 100.0f;
+        reel_precision = precision;
     }
 
 
@@ -79,8 +79,10 @@ public class TerrainGenManager : MonoBehaviour {
                 break;
         }
 
-        float timed = Time.realtimeSinceStartup - _chrono; // Marche pas ?
+        float timed = Time.realtimeSinceStartup - _chrono;
         Debug.logger.Log ( "Generation time : " + timed.ToString ( ) );
+
+        transform.Rotate ( Vector3.right, -90 );
     }
 
 
@@ -89,20 +91,23 @@ public class TerrainGenManager : MonoBehaviour {
             System.IO.Directory.Delete ( Path.Combine ( Application.dataPath, "Temp/" + name + "/" ), true );
         }
 
-        //foreach ( Transform child in transform ) {
-        //    Mesh mesh = child.GetComponent<MeshFilter> ( ).mesh;
-        //    mesh.Clear ( );
-        //    Destroy ( mesh );
-        //    System.GC.Collect ( );
-        //}
+        foreach ( Transform child in transform ) {
+            Mesh mesh = child.GetComponent<MeshFilter> ( ).mesh;
+            mesh.Clear ( );
+            Destroy ( mesh );
+        }
+
+        Caching.CleanCache ( );
+        
+        System.GC.Collect ( );
     }
 
 
-    // Marche plus
+    // Marche plus ?
     public void GenerateTerrainFromObjData ( ) {
         string[] data;
 
-        TerrainGen.TerrainCSharpLibrary.GenerateTerrainMeshData ( reel_size, reel_size, out data, reel_precision );
+        TerrainGen.TerrainCSharpLibrary.GenerateTerrainMeshData ( reel_size, reel_size, out data, 1.0f );
 
         GameObject obj = new GameObject ( );
         obj.name = name;
@@ -131,6 +136,7 @@ public class TerrainGenManager : MonoBehaviour {
     }
 
 
+    // Marche plus
     string _newFolderPath = "Assets/Temp/";
     public void GenerateTerrainFromObj ( ) {
         int meshCount = 0;
@@ -140,7 +146,7 @@ public class TerrainGenManager : MonoBehaviour {
         string path = Path.Combine ( Application.dataPath, "Temp/" + name + "/" );
         System.IO.Directory.CreateDirectory ( path );
 
-        TerrainGen.TerrainCSharpLibrary.GenerateTerrainObjs ( reel_size, reel_size, _newFolderPath + "/" + name + "_", ref meshCount, reel_precision );
+        TerrainGen.TerrainCSharpLibrary.GenerateTerrainObjs ( reel_size, reel_size, _newFolderPath + "/" + name + "_", ref meshCount, 1.0f );
 
 #if UNITY_EDITOR
         AssetDatabase.Refresh ( );
@@ -210,11 +216,14 @@ public class TerrainGenManager : MonoBehaviour {
         float[] normals;
         int[] faces;
 
-        TerrainGen.TerrainCSharpLibrary.GenerateTerrainData ( reel_size, reel_size, out vertex, out normals, out faces, reel_precision );
+        TerrainGen.TerrainCSharpLibrary.GenerateTerrainData ( reel_size, reel_size, out vertex, out normals, out faces, 1.0f );
 
         partCount = 0;
 
         Vector3[] vertices = getVertices ( vertex );
+
+        System.Array.Clear ( faces, 0, normals.Length );
+        faces = null;
 
         System.Array.Clear ( normals, 0, normals.Length );
         normals = null;
@@ -225,46 +234,43 @@ public class TerrainGenManager : MonoBehaviour {
         System.GC.Collect ( );
 
         //SplitDataIn4Quad ( terrain, vertices, faces );
-        SplitDataIn2 ( vertices, faces, reel_size, reel_size );
+        SplitDataIn2 ( applyPrecision ( vertices, reel_size, reel_size ), reel_size / reel_precision, reel_size / reel_precision );
     }
 
 
-    void SplitDataIn2 ( Vector3[] verticesArray, int[] faces, int width, int height ) {
-        int reel_width   = Mathf.FloorToInt ( width  * reel_precision );
-        int reel_height  = Mathf.FloorToInt ( height * reel_precision );
-
+    void SplitDataIn2 ( Vector3[] verticesArray, int width, int height ) {
         if ( verticesArray.Length > 65000 ) {
-            System.Array.Clear ( faces, 0, faces.Length );
-            faces = null;
-
             List<Vector3> vertices = verticesArray.ToList<Vector3> ( );
 
             System.Array.Clear ( verticesArray, 0, verticesArray.Length );
             verticesArray = null;
 
-            int height_   = ( reel_height / 2 ) + 1;
-            int size_     = ( height_ * reel_width );
+            int new_height1   = ( height / 2 ) + 1;
+            int new_size1     = ( new_height1 * width );
 
-            List<Vector3> vertices1 = vertices.GetRange ( 0, size_ );
-            List<int> faces1 = regenerateFaces ( reel_width, height_ );
+            List<Vector3> vertices1 = vertices.GetRange ( 0, new_size1 );
+            //List<int> faces1 = regenerateFaces ( width, new_height1 );
 
-            List<Vector3> vertices2 = vertices.GetRange ( size_ - 2 * reel_width, size_ );
-            List<int> faces2 = regenerateFaces ( reel_width, height_ );
+            int new_height2   = ( height - new_height1 ) + 1;
+            int new_size2     = ( new_height2 * width );
+
+            List<Vector3> vertices2 = vertices.GetRange ( new_size1 - width, new_size2 );
+            //List<int> faces2 = regenerateFaces ( width, new_height2 );
 
             vertices.Clear ( );
             vertices = null;
 
             System.GC.Collect ( );
 
-            SplitDataIn2 ( vertices1.ToArray ( ), faces1.ToArray ( ), width, height_ );
-            SplitDataIn2 ( vertices2.ToArray ( ), faces2.ToArray ( ), width, height_ );
+            SplitDataIn2 ( vertices1.ToArray ( ), width, new_height1 );
+            SplitDataIn2 ( vertices2.ToArray ( ), width, new_height2 );
         } else {
-            GenerateMesh ( verticesArray, faces, transform );
+            GenerateMesh ( verticesArray, regenerateFaces ( width, height ), transform );
         }
     }
 
 
-    // Marche pas :'(((((
+    // Marche pas : à reprendre plus tard
     void SplitDataIn4Quad ( Vector3[] vertices, int[] faces ) {
         if ( vertices.Length > 65000 ) { 
             int idx = 0;
@@ -289,21 +295,30 @@ public class TerrainGenManager : MonoBehaviour {
                 }    
             }
 
-            List<int> facesIndex = regenerateFaces ( midSize, midSize );
-
             size = midSize;
 
-            SplitDataIn4Quad ( vertices0, facesIndex.ToArray ( ) );
-            SplitDataIn4Quad ( vertices1, facesIndex.ToArray ( ) );
-            SplitDataIn4Quad ( vertices2, facesIndex.ToArray ( ) );
-            SplitDataIn4Quad ( vertices3, facesIndex.ToArray ( ) );
+            SplitDataIn4Quad ( vertices0, regenerateFaces ( midSize, midSize ) );
+            SplitDataIn4Quad ( vertices1, regenerateFaces ( midSize, midSize ) );
+            SplitDataIn4Quad ( vertices2, regenerateFaces ( midSize, midSize ) );
+            SplitDataIn4Quad ( vertices3, regenerateFaces ( midSize, midSize ) );
         } else {
             GenerateMesh ( vertices, faces, transform );
         }
     }
 
 
-    List<int> regenerateFaces ( int width, int height ) {
+    Vector3[] applyPrecision ( Vector3[] vertices,int width, int height ) {
+        List<Vector3> new_vertices = new List<Vector3> ( );
+        for ( int j = 0; j < height; j+=precision ) {
+            for ( int i = 0; i < width; i+=precision ) {
+                new_vertices.Add ( vertices[i + j * (width)] );
+            }
+        }
+        return new_vertices.ToArray ( );
+    }
+
+
+    int[] regenerateFaces ( int width, int height ) {
         List<int> facesIndex = new List<int> ( );
 
         for ( int j = 0; j < height - 1; j++ ) {
@@ -321,7 +336,7 @@ public class TerrainGenManager : MonoBehaviour {
             }
         }
 
-        return facesIndex;
+        return facesIndex.ToArray ( );
     }
 
 

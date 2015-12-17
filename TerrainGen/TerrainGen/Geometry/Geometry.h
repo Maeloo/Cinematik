@@ -1,5 +1,4 @@
 #pragma once
-#include <objbase.h>
 #include "Vector.h"
 #include "Point.h"
 #include "Normals.h"
@@ -119,12 +118,12 @@ inline Normals faceForward(const Normals& n, const Vector& v)
 inline BBox unionBBox(const BBox & b, const Point & p)
 {
 	BBox ret(b);
-	ret.pMin.x = min(b.pMin.x, p.x);
-	ret.pMin.y = min(b.pMin.y, p.y);
-	ret.pMin.z = min(b.pMin.z, p.z);
-	ret.pMax.x = max(b.pMax.x, p.x);
-	ret.pMax.y = max(b.pMax.y, p.y);
-	ret.pMax.z = max(b.pMax.z, p.z);
+	ret.pMin.x = fmin ( b.pMin.x, p.x );
+	ret.pMin.y = fmin ( b.pMin.y, p.y );
+	ret.pMin.z = fmin ( b.pMin.z, p.z );
+	ret.pMax.x = fmax(b.pMax.x, p.x);
+	ret.pMax.y = fmax ( b.pMax.y, p.y );
+	ret.pMax.z = fmax ( b.pMax.z, p.z );
 	return ret;
 }
 
@@ -132,12 +131,12 @@ inline BBox unionBBox(const BBox & b, const Point & p)
 inline BBox unionBBox(const BBox & b1, const BBox & b2)
 {
 	BBox ret;
-	ret.pMin.x = min(b1.pMin.x, b2.pMin.x);
-	ret.pMin.y = min(b1.pMin.y, b2.pMin.y);
-	ret.pMin.z = min(b1.pMin.z, b2.pMin.z);
-	ret.pMax.x = max(b1.pMax.x, b2.pMax.x);
-	ret.pMax.y = max(b1.pMax.y, b2.pMax.y);
-	ret.pMax.z = max(b1.pMax.z, b2.pMax.z);
+	ret.pMin.x = fmin ( b1.pMin.x, b2.pMin.x );
+	ret.pMin.y = fmin ( b1.pMin.y, b2.pMin.y );
+	ret.pMin.z = fmin ( b1.pMin.z, b2.pMin.z );
+	ret.pMax.x = fmax ( b1.pMax.x, b2.pMax.x );
+	ret.pMax.y = fmax ( b1.pMax.y, b2.pMax.y );
+	ret.pMax.z = fmax ( b1.pMax.z, b2.pMax.z );
 	return ret;
 }
 

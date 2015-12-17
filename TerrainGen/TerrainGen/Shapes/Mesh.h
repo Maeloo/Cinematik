@@ -16,7 +16,7 @@ public:
 
 	Mesh ( );
 	Mesh ( const std::vector<Point> &points ) : vertex ( points ) { }
-	Mesh ( const Terrain &, float precision );
+	Mesh ( const Terrain & );
 	
 	bool intersect ( const Ray &ray, float * tHit ) const;
 	BBox getBound ( ) const;

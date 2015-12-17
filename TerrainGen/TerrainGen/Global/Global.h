@@ -29,8 +29,6 @@ inline float clamp(float val, float low, float high)
 	else return val;
 }
 
-
-
 inline int mod(int a, int b)
 {
 	int n = int(a / b);
@@ -53,53 +51,3 @@ inline float randf(float low, float high)
 {
 	return low + (float)rand() / (float)(RAND_MAX / (high - low));
 }
-struct ColorRGB
-{
-	float x, y, z;
-	ColorRGB operator*(float f)
-	{
-		return ColorRGB{ x * f, y * f, z * f };
-	}
-
-	ColorRGB operator*(ColorRGB c)
-	{
-		return ColorRGB{ x * c.x, y * c.y, z * c.z };
-	}
-
-	ColorRGB operator/(float f)
-	{
-		return ColorRGB{ x /f, y /f, z /f};
-	}
-
-	ColorRGB operator+(ColorRGB c)
-	{
-		return ColorRGB{ x + c.x, y + c.y, z + c.z };
-	}
-
-	ColorRGB operator-(ColorRGB c)
-	{
-		return ColorRGB{ x - c.x, y - c.y, z - c.z };
-	}
-
-	ColorRGB cclamp(float min, float max)
-	{
-		return ColorRGB{ clamp(x, min, max), clamp(y, min, max), clamp(z, min, max) };
-	}
-
-	ColorRGB applyGamma()
-	{
-		float p = 1.f / 2.2f;
-		return ColorRGB{ powf(x, p), powf(y, p), powf(z, p) };
-	}
-	ColorRGB toRgb()
-	{
-		return operator*(255.f);
-	}
-};
-
-const ColorRGB black = ColorRGB{ .0f, .0f, .0f };
-const ColorRGB white = ColorRGB{ 0.75f, 0.75f, 0.75f } *255.f;
-const ColorRGB blue = ColorRGB{ .25f, .25f, .75f } *255.f;
-const ColorRGB red = ColorRGB{ .75f, .25f, .25f } *255.f;
-const ColorRGB yellow = ColorRGB{ .9f, .1f, .9f } *255.f;
-const ColorRGB purple = ColorRGB{ .9f, .9f, .1f } *255.f;

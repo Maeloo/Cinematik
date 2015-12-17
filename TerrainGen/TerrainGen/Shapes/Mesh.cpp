@@ -18,18 +18,18 @@ bool Mesh::intersect(const Ray &ray, float * tHit) const
 	return newt < INFINITY;
 }
 
-Mesh::Mesh ( const Terrain & terrain, float precision ) {
-	float step	= 1.f / precision;
+Mesh::Mesh ( const Terrain & terrain ) {
 	vertex		= std::vector<Point> ( );
 	normals		= std::vector<Normals> ( );
 	facesIndex	= std::vector<int> ( );
 
-	int height	= terrain.getHeight ( ) * precision;
-	int width	= terrain.getWidth ( ) * precision;
+	int height = terrain.getPointsHeight ( );
+	int width = terrain.getPointsWidth ( );
 	
-	for ( int j = 0; j < height; j += step ) {
-		for ( int i = 0; i < width; i += step ) {
-			vertex.push_back ( terrain.getPoint ( i, j ) );
+	int step = terrain.getSteps ( );
+	for ( int j = 0; j < height; ++j ) {
+		for ( int i = 0; i < width; ++i ) {
+			vertex.push_back ( terrain.getPoint ( i * step, j * step ) );
 			normals.push_back ( terrain.getNormal ( terrain.getPoint ( i, j ) ) );
 		}
 	}

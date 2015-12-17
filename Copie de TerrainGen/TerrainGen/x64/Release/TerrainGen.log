@@ -1,0 +1,119 @@
+﻿Build started 15/12/2015 22:50:14.
+     1>Project "E:\Work in Progress\Cinematik\TerrainGen\TerrainGen\TerrainGen.vcxproj" on node 3 (Rebuild target(s)).
+     1>ClCompile:
+         E:\Visual Studio 13\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /I. /I\include /I.\GeneratedFiles\Release /I\include\QtCore /I\include\QtGui /I\include\QtWidgets /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _CRT_SECURE_NO_WARNINGS /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /D NDEBUG /D _WINDOWS /D _USRDLL /D TERRAINGEN_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt Geometry\BBox.cpp Geometry\Ray.cpp Noise\Noise.cpp Shapes\Cube.cpp Shapes\Mesh.cpp Shapes\Shapes.cpp Shapes\Sphere.cpp Shapes\Triangle.cpp TerrainCPPLibrary.cpp _UnityExport\TerrainMesh.cpp Terrain\Terrain.cpp Terrain\TerrainFractal.cpp
+         BBox.cpp
+     1>Geometry\BBox.cpp(4): warning C4056: overflow in floating-point constant arithmetic
+         Ray.cpp
+         Noise.cpp
+         Cube.cpp
+     1>Shapes\Cube.cpp(26): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         Mesh.cpp
+     1>e:\work in progress\cinematik\terraingen\terraingen\shapes\..\Terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>e:\work in progress\cinematik\terraingen\terraingen\shapes\..\Terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>e:\work in progress\cinematik\terraingen\terraingen\shapes\Mesh.h(46): warning C4101: 'skip' : unreferenced local variable
+     1>e:\work in progress\cinematik\terraingen\terraingen\shapes\Mesh.h(47): warning C4101: 'skipc' : unreferenced local variable
+     1>Shapes\Mesh.cpp(27): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>Shapes\Mesh.cpp(28): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>Shapes\Mesh.cpp(30): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>Shapes\Mesh.cpp(31): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>Shapes\Mesh.cpp(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Shapes\Mesh.cpp(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Shapes.cpp
+     1>Shapes\Shapes.cpp(23): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+         Sphere.cpp
+         Triangle.cpp
+         TerrainCPPLibrary.cpp
+     1>e:\work in progress\cinematik\terraingen\terraingen\terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>e:\work in progress\cinematik\terraingen\terraingen\terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>e:\work in progress\cinematik\terraingen\terraingen\Shapes\Mesh.h(46): warning C4101: 'skip' : unreferenced local variable
+     1>e:\work in progress\cinematik\terraingen\terraingen\Shapes\Mesh.h(47): warning C4101: 'skipc' : unreferenced local variable
+     1>TerrainCPPLibrary.cpp(20): warning C4273: 'TestDll' : inconsistent dll linkage
+                 e:\work in progress\cinematik\terraingen\terraingen\TerrainCPPLibrary.h(13) : see previous definition of 'TestDll'
+     1>TerrainCPPLibrary.cpp(28): warning C4273: 'GenerateTerrainMeshData' : inconsistent dll linkage
+                 e:\work in progress\cinematik\terraingen\terraingen\TerrainCPPLibrary.h(31) : see previous definition of 'GenerateTerrainMeshData'
+     1>TerrainCPPLibrary.cpp(45): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(46): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(60): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(87): warning C4273: 'GenerateTerrainMesh' : inconsistent dll linkage
+                 e:\work in progress\cinematik\terraingen\terraingen\TerrainCPPLibrary.h(26) : see previous definition of 'GenerateTerrainMesh'
+     1>TerrainCPPLibrary.cpp(104): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(105): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(119): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(133): warning C4273: 'GenerateTerrainHeights' : inconsistent dll linkage
+                 e:\work in progress\cinematik\terraingen\terraingen\TerrainCPPLibrary.h(22) : see previous definition of 'GenerateTerrainHeights'
+     1>TerrainCPPLibrary.cpp(138): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>TerrainCPPLibrary.cpp(140): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>TerrainCPPLibrary.cpp(142): warning C4018: '<' : signed/unsigned mismatch
+     1>TerrainCPPLibrary.cpp(143): warning C4018: '<' : signed/unsigned mismatch
+     1>TerrainCPPLibrary.cpp(145): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>TerrainCPPLibrary.cpp(157): warning C4273: 'GenerateTerrainData' : inconsistent dll linkage
+                 e:\work in progress\cinematik\terraingen\terraingen\TerrainCPPLibrary.h(15) : see previous definition of 'GenerateTerrainData'
+     1>TerrainCPPLibrary.cpp(165): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(166): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(190): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(191): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>TerrainCPPLibrary.cpp(192): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+         TerrainMesh.cpp
+     1>e:\work in progress\cinematik\terraingen\terraingen\_unityexport\..\Terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>e:\work in progress\cinematik\terraingen\terraingen\_unityexport\..\Terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>_UnityExport\TerrainMesh.cpp(52): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>_UnityExport\TerrainMesh.cpp(72): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>_UnityExport\TerrainMesh.cpp(84): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+         Terrain.cpp
+     1>e:\work in progress\cinematik\terraingen\terraingen\terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>e:\work in progress\cinematik\terraingen\terraingen\terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(73): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\Terrain.cpp(75): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\Terrain.cpp(80): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(94): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(126): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(130): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(135): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(146): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(156): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(160): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(165): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(200): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>Terrain\Terrain.cpp(243): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         TerrainFractal.cpp
+     1>e:\work in progress\cinematik\terraingen\terraingen\terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const double' to 'float', possible loss of data
+     1>e:\work in progress\cinematik\terraingen\terraingen\terrain\Terrain.h(56): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>Terrain\TerrainFractal.cpp(13): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(16): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(17): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(26): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(28): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(29): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(39): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(45): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(47): warning C4244: 'argument' : conversion from 'int' to 'const float', possible loss of data
+     1>Terrain\TerrainFractal.cpp(48): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Terrain\TerrainFractal.cpp(64): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(67): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(69): warning C4018: '<' : signed/unsigned mismatch
+     1>Terrain\TerrainFractal.cpp(91): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         E:\Visual Studio 13\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\Assets\TerrainGen\TerrainGen.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"..\..\Assets\TerrainGen\TerrainGen.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"TerrainGen.lib" /MACHINE:X64 /DLL x64\Release\BBox.obj
+         x64\Release\Ray.obj
+         x64\Release\Noise.obj
+         x64\Release\Cube.obj
+         x64\Release\Mesh.obj
+         x64\Release\Shapes.obj
+         x64\Release\Sphere.obj
+         x64\Release\Triangle.obj
+         x64\Release\TerrainCPPLibrary.obj
+         x64\Release\TerrainMesh.obj
+         x64\Release\Terrain.obj
+         x64\Release\TerrainFractal.obj
+            Creating library TerrainGen.lib and object TerrainGen.exp
+         Generating code
+         Finished generating code
+         TerrainGen.vcxproj -> E:\Work in Progress\Cinematik\TerrainGen\TerrainGen\..\..\Assets\TerrainGen\TerrainGen.dll
+     1>Done Building Project "E:\Work in Progress\Cinematik\TerrainGen\TerrainGen\TerrainGen.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.52

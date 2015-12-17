@@ -26,13 +26,12 @@ extern "C" {
 		char*** data, int* size,
 		float precision )
 	{
-		float step = 1.f / precision;
-		TerrainFractal terrain = TerrainFractal ( width, height );
+		TerrainFractal terrain = TerrainFractal ( width, height, precision );
 
 		std::vector<Vec3<float>> verticesData = std::vector<Vec3<float>> ( );
 
-		for ( float y = 0; y < height; y+=step ) {
-			for ( float x = 0; x < width; x += step ) {
+		for ( float y = 0; y < height; ++y ) {
+			for ( float x = 0; x < width; ++x ) {
 				Point p = terrain.getPoint ( x, y );
 				verticesData.push_back ( Vec3<float> ( p.x, p.y, p.z ) );
 			}
@@ -40,10 +39,10 @@ extern "C" {
 
 		std::vector<unsigned int> facesIndex = std::vector<unsigned int> ( );
 
-		for ( float y = 0; y < ( height * precision ) - 1; y++ ) {
-			for ( float x = 0; x < ( width * precision ) - 1; x++ ) {
-				int i0 = y * ( width * precision ) + x;
-				int i1 = i0 + ( width * precision );
+		for ( float y = 0; y < height - 1; y++ ) {
+			for ( float x = 0; x < width - 1; x++ ) {
+				int i0 = y * width + x;
+				int i1 = i0 + width;
 
 				facesIndex.push_back ( i0 );
 				facesIndex.push_back ( i0 + 1 );
@@ -85,13 +84,12 @@ extern "C" {
 		const char *name, int *meshCount,
 		float precision )
 	{
-		float step = 1.f / precision;
-		TerrainFractal terrain = TerrainFractal ( width, height );
+		TerrainFractal terrain = TerrainFractal ( width, height, precision );
 
 		std::vector<Vec3<float>> verticesData = std::vector<Vec3<float>> ( );
 
-		for ( float y = 0; y < height; y += step ) {
-			for ( float x = 0; x < width; x += step ) {
+		for ( float y = 0; y < height; ++y ) {
+			for ( float x = 0; x < width; ++x ) {
 				Point p = terrain.getPoint ( x, y );
 				verticesData.push_back ( Vec3<float> ( p.x, p.y, p.z ) );
 			}
@@ -99,10 +97,10 @@ extern "C" {
 
 		std::vector<unsigned int> facesIndex = std::vector<unsigned int> ( );
 
-		for ( float y = 0; y < ( height * precision ) - 1; y++ ) {
-			for ( float x = 0; x < ( width * precision ) - 1; x++ ) {
-				int i0 = y * ( width * precision ) + x;
-				int i1 = i0 + ( width * precision );
+		for ( float y = 0; y < height - 1; y++ ) {
+			for ( float x = 0; x < width - 1; x++ ) {
+				int i0 = y * width + x;
+				int i1 = i0 + width;
 
 				facesIndex.push_back ( i0 );
 				facesIndex.push_back ( i0 + 1 );
@@ -131,7 +129,7 @@ extern "C" {
 		unsigned int width, unsigned int height,
 		float **heights, float *max ) 
 	{
-		TerrainFractal terrain = TerrainFractal ( width, height );
+		TerrainFractal terrain = TerrainFractal ( width, height, 1 );
 
 		*heights = new float[height * width];
 
@@ -155,27 +153,23 @@ extern "C" {
 		int **faces, int *faceSize,
 		float precision ) 
 	{
-		TerrainFractal terrain = TerrainFractal ( width, height );
+		TerrainFractal terrain = TerrainFractal ( width, height, precision );
 
-		float step = 1.f / precision;
 		std::vector<Point> terrainVertex = std::vector<Point> ( );
 		std::vector<Normals> terrainNormals = std::vector<Normals> ( );
 		std::vector<int> facesIndex = std::vector<int> ( );
 
-		int h = height * precision;
-		int w = width * precision;
-
-		for ( float j = 0; j < height; j += step ) {
-			for ( float i = 0; i < width; i += step ) {
+		for ( float j = 0; j < height; ++j ) {
+			for ( float i = 0; i < width; ++i ) {
 				terrainVertex.push_back ( terrain.getPoint ( i, j ) );
 				terrainNormals.push_back ( terrain.getNormal ( terrain.getPoint ( i, j ) ) );
 			}
 		}
 
-		for ( int j = 0; j < h - 1; j++ ) {
-			for ( int i = 0; i < w - 1; i++ ) {
-				int i0 = j * w + i;
-				int i1 = i0 + w;
+		for ( int j = 0; j < height - 1; j++ ) {
+			for ( int i = 0; i < width - 1; i++ ) {
+				int i0 = j * width + i;
+				int i1 = i0 + width;
 
 				facesIndex.push_back ( i0 );
 				facesIndex.push_back ( i0 + 1 );
